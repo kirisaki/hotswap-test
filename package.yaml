@@ -34,9 +34,13 @@ executables:
   hotswap-test-exe:
     main:                Main.hs
     source-dirs:         app
+    c-sources: app/Main.c
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -rdynamic
+    - -fwhole-archive-hs-libs
+    - -no-hs-main
     dependencies:
     - hotswap-test
